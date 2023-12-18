@@ -1,15 +1,17 @@
 <template>
   <div class="cards-layout">
     <div class="flex justify-between">
-      <span class="text-body2 text-weight-medium text-white q-mt-sm">Account balance</span>
-      <q-icon size="sm" name="svguse:icons.svg#nav-logo" color="primary" />
+      <span class="label text-body2 text-weight-medium q-mt-sm">
+        Account balance
+      </span>
+      <q-icon class="mobile-app-logo" size="sm" name="svguse:icons.svg#nav-logo" color="primary" />
     </div>
     <div class="q-mt-md flex justify-between">
       <div class="flex items-center">
         <span class="bg-primary text-white q-px-md q-py-xs rounded-borders text-caption text-weight-bold">
           S$
         </span>
-        <span class="text-h5 text-white text-weight-bold q-ml-sm">
+        <span class="label text-h5 text-weight-bold q-ml-sm">
           {{ user?.bankBalance.toLocaleString() }}
         </span>
       </div>
@@ -89,5 +91,23 @@ export default defineComponent({
   background: transparent;
   margin-top: 1.5rem;
   height: 18.25rem;
+}
+.label {
+  color: white;
+}
+@media (min-width: $breakpoint-sm-max) {
+  .cards-layout {
+    position: static;
+    width: 100%;
+  }
+  .cards-carousel {
+    width: 50%;
+  }
+  .label{
+    color: black;
+  }
+  .mobile-app-logo {
+    display: none;
+  }
 }
 </style>

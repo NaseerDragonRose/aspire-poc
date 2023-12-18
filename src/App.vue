@@ -28,14 +28,16 @@ export default defineComponent({
 .display-desktop {
   display: none;
 }
-@media (max-width: $breakpoint-xs-max) {
+@media (max-width: $breakpoint-sm-max) {
   .display-mobile {
     display: block;
   }
 }
-@media (min-width: $breakpoint-xs-max) {
+@media (min-width: $breakpoint-sm-max) {
   .display-desktop {
-    display: block;
+    display: grid;
+    grid-template-columns: 24vw 76vw;
+    overflow-y: clip;
   }
 }
 </style>

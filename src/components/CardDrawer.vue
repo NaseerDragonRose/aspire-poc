@@ -100,4 +100,33 @@ export default defineComponent({
   line-height: 1rem;
   letter-spacing: 0.03333em;
 }
+@media (min-width: $breakpoint-sm-max) {
+  .card-drawer,
+  .card-actions {
+    border-radius: 1rem;
+  }
+  .card-drawer {
+    position: static;
+    margin: 0;
+    width: 100%;
+    height: fit-content;
+  }
+  .card-actions {
+    width: 50%;
+    .q-btn__content {
+      flex-direction: column;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+.card-actions {
+  .q-btn:hover .q-focus-helper {
+    background-color: transparent !important;
+  }
+  .q-btn__content {
+    flex-direction: column;
+  }
+}
 </style>

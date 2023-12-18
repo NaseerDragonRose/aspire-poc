@@ -1,9 +1,10 @@
 <template>
   <q-btn
-    flat
+    :flat="isMobile"
+    :unelevated="!isMobile"
     no-caps
-    class="q-pa-none"
-    color="blue-1"
+    :class="{'q-pa-none': isMobile}"
+    :color="`${isMobile ? 'blue-1' : 'secondary'}`"
     icon="add_circle"
     label="New Card"
     @click="showNewCardModal = !showNewCardModal"
@@ -24,7 +25,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { Card } from 'src/models/Card';
-import { date } from 'quasar';
+import { date, useQuasar } from 'quasar';
 import { useUserStore } from 'stores/user-store';
 
 export default defineComponent({
@@ -33,6 +34,7 @@ export default defineComponent({
   setup() {
     const showNewCardModal = ref(false);
     const cardHolderName = ref('');
+    const $q = useQuasar();
 
     const getRandomDigit = () => Math.floor(Math.random() * 10);
 
@@ -56,7 +58,13 @@ export default defineComponent({
       reset();
     };
 
-    return { showNewCardModal, cardHolderName, onAddCard, reset };
+    return {
+      isMobile: $q.platform.is.mobile,
+      showNewCardModal,
+      cardHolderName,
+      onAddCard,
+      reset
+    };
   }
 });
 </script>
