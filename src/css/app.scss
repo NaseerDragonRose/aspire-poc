@@ -1,0 +1,20 @@
+// app global css in SCSS format
+.q-page-container {
+  height: 100vh;
+  background-color: var(--q-dark);
+  padding: 1rem 1.5rem;
+}
+
+.q-tab {
+  .q-tab__label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 9px;
+    text-transform: capitalize;
+    margin-top: 0.25rem;
+  }
+  &.q-tab--active {
+    .q-tab__label {
+      font-weight: bold;
+    }
+  }
+}
